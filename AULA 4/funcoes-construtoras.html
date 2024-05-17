@@ -1,0 +1,26 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function Livro(titulo, autor) {
+                this.titulo = titulo;
+                this.autor = autor;
+            }
+
+            const livro1 = new Livro("Os três mosqueteiros", "Alexandre Dumas");
+            console.log(livro1.titulo);
+            console.log(livro1.autor);
+
+            const livro2 = new Livro("Os Maias", "Eça de Queiroz");
+            console.log(livro2.titulo);
+            console.log(livro2.autor);
+
+            livro1.titulo = "O Conde de Monte Cristo";
+            console.log(livro1);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const funcaoanonima = function () {
+                console.log("João");
+            };
+            const somafuncao = function (a, b) {
+                return a + b;
+            };
+            console.log(funcaoanonima());
+            console.log(somafuncao(1, 2));
+
+            (function () {
+                console.log("João");
+            })();
+
+            (function (a, b) {
+                console.log(a + b);
+            })(1, 3);
+        </script>
+    </body>
+</html>
