@@ -1,0 +1,31 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button type="button">Elementos</button>
+        <p id="teste">Teste</p>
+        <button type="button">Primeiro</button>
+        <div class="container">
+            <h1><time>00:00:00</time></h1>
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+            <button id="reset">Reset</button>
+        </div>
+        - Faz console.log de todos os button. - Faz console.log dos button que
+        fazem parte da div com a class container.
+
+        <script>
+            const testeButton = document.getElementsByTagName("button");
+            console.log(testeButton);
+            const buttonContainer =
+                document.querySelectorAll(".container button");
+            console.log(buttonContainer);
+
+            const testeId = document.getElementById("teste");
+            console.log(testeId);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // const soma = (a, b) => {
+            //     const numeroPar = a + b;
+            //     const promise = new Promise((resolve, reject) => {
+            //         if (numeroPar % 2 == 0) {
+            //             resolve("é par");
+            //         } else {
+            //             reject("é impar");
+            //         }
+            //     });
+            //     // promise
+            //     //     .then((result) => console.log(result))
+            //     //     .catch((error) => console.log(error));
+            // };
+            const soma = (a, b) => {
+                const numeroPar = a + b;
+                const promise = new Promise((resolve, reject) => {
+                    if (numeroPar % 2 == 0) {
+                        resolve("é par");
+                    } else {
+                        reject("é impar");
+                    }
+                });
+                return promise;
+            };
+            // arrowfunction
+
+            const testePromise = async (a, b) => {
+                try {
+                    const result = await soma(a, b);
+                    console.log(result);
+                } catch (e) {
+                    console.log(e);
+                }
+            };
+            // async function testeAsync2(a, b) {
+            //     const total = await soma(a, b);
+            //     console.log(total);
+            // }
+
+            const testeNome = (a) => {
+                return new Promise((resolve, reject) => {
+                    if (a === "javascript") {
+                        reject("não é um nome");
+                    } else {
+                        resolve(a);
+                    }
+                });
+            };
+            const asyncNome = async (a) => {
+                try {
+                    const result = await testeNome(a);
+                    console.log(result);
+                } catch (error) {
+                    console.log(error);
+                }
+            };
+            asyncNome("João");
+            asyncNome("javascript");
+            // const testeNome = () => {
+            //     const result = await asyncNome();
+            // };
+
+            // const asyncNome = (a) => {
+            //     if ((a)) {
+            //         resolve(a);
+            //     }
+            //     elseif((asyncNome = "Javascript"));
+            //     reject("não é um nome");
+            // };
+        </script>
+    </body>
+</html>

@@ -89,6 +89,8 @@
             console.log(somaIdades);
 
             const { name, category } = companies[0];
+
+            const newObjetCompany = { name: name, category: category };
             const { street } = person.address;
 
             // const avaliacaoEmpresas = () => {
@@ -96,11 +98,16 @@
             //         (empresa) => empresa.start > 1996 && empresa.end < 2004
             //     );
             // };
+            // const avaliacaoEmpresas = () => {
+            //     return companies.map((empresa) =>
+            //         empresa.start > 1996 && empresa.end < 2004 === true
+            //             ? "verdadeiro"
+            //             : "falso"
+            //     );
+            // };
             const avaliacaoEmpresas = () => {
                 return companies.map((empresa) =>
-                    empresa.start > 1996 && empresa.end < 2004 === true
-                        ? "verdadeiro"
-                        : "falso"
+                    empresa.start > 1996 && empresa.start < 2004 ? true : false
                 );
             };
         </script>
