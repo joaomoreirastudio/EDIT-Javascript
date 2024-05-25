@@ -1,0 +1,84 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const myFunction = () => {
+                console.log(" isto foi demasiado rápido!");
+            };
+            // closure --------------------------------------------------
+
+            // const nameKey = "Nome:";
+            // const nameValue = "João";
+            // function form(nameKey) {
+            //     return nameKey;
+            //     {
+            //         return function (nameValue) {
+            //             return nameKey + nameValue;
+            //         };
+            //     }
+            // }
+            // function form(nameKey) {
+            //     return;
+            //     {
+            //         return function (nameValue) {
+            //             return nameKey + nameValue;
+            //         };
+            //     }
+            // }
+
+            // function form() {
+            //     return function () {
+            //         return nameKey + nameValue;
+            //     };
+            // }
+
+            // function form(name) {
+            //     return namekey;
+            //     {
+            //         return function (personalName) {
+            //             const nameValue = "João";
+            //             {
+            //                 return nameKey + personalName;
+            //             }
+            //         };
+            //     }
+            // }
+
+            // function formName(name) {
+            //     return function () {
+            //         return {
+            //             Nome: name,
+            //         };
+            //     };
+            // }
+            // const myName = formName("joão");
+            // console.log(myName());
+
+            function formName(name) {
+                return function (nameValue) {
+                    console.log(`${name}: ${nameValue}`);
+                };
+            }
+            const nameValue = formName("Nome");
+            nameValue("Vitor");
+
+            // closure end --------------------------------------------------
+
+            function Product(name, value) {
+                this.name = name;
+                this.value = value;
+            }
+            const product = new Product("Iphone", "699€");
+            console.log(product);
+
+            product.value = "2.5";
+            console.log(product);
+            console.log(Math.round(parseFloat(product.value)));
+            console.log(parseInt(product.value));
+        </script>
+    </body>
+</html>

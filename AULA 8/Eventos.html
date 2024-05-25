@@ -1,0 +1,45 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body onload="console.log('loaded')">
+        <button onclick="console.log('testeclick')">teste click</button>
+        <form onsubmit="console.log('submit')" onreset="console.log('reset')">
+            <input
+                onchange="console.log('onchange')"
+                type="text"
+                placeholder="input texto"
+            />
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+        <button
+            class="testemouseover"
+            onmouseover="mouseover()"
+            onmouseout="mouseout()"
+        >
+            testemouseover
+        </button>
+        <button onfocus="testeFocus()" onblur="testeBlur()">
+            teste blur e focus
+        </button>
+        <input type="text" onfocus="testeFocus()" onblur="testeBlur()" />
+        <script>
+            function mouseover() {
+                console.log("mouseover");
+            }
+            function mouseout() {
+                console.log("mouseout");
+            }
+
+            function testeFocus() {
+                console.log("focus");
+            }
+            function testeBlur() {
+                console.log("blur");
+            }
+        </script>
+    </body>
+</html>

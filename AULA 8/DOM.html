@@ -14,8 +14,8 @@
             <button id="stop">Stop</button>
             <button id="reset">Reset</button>
         </div>
-        - Faz console.log de todos os button. - Faz console.log dos button que
-        fazem parte da div com a class container.
+        <!-- - Faz console.log de todos os button. - Faz console.log dos button que
+        fazem parte da div com a class container. -->
 
         <script>
             const testeButton = document.getElementsByTagName("button");
@@ -26,6 +26,16 @@
 
             const testeId = document.getElementById("teste");
             console.log(testeId);
+
+            const newDiv = document.createElement("div");
+            document.body.appendChild(newDiv);
+            const divContent = document.createTextNode(
+                "Isto é apenas para um exercício"
+            );
+
+            newDiv.appendChild(divContent);
+            newDiv.append(" muito difícil.");
+            newDiv.setAttribute("aria-label", "teste-teste");
         </script>
     </body>
 </html>
