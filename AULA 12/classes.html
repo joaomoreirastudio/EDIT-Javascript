@@ -1,0 +1,34 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            class Carro {
+                constructor(marca, modelo) {
+                    this.marca = marca;
+                    this.modelo = modelo;
+                }
+
+                display() {
+                    console.log(`Esté é um ${this.marca} ${this.modelo}`);
+                }
+            }
+
+            const ford = new Carro("Ford", "Mustang");
+            const mercedes = new Carro("Mercedes", "AMG");
+            console.log(ford.display());
+
+            class Suv extends Carro {
+                constructor(marca, modelo, cor) {
+                    super(marca, modelo);
+                    this.cor = cor;
+                }
+            }
+            const toyota = new Suv("Toyota", "Land Cruiser", "Verde");
+            console.log(toyota.display());
+        </script>
+    </body>
+</html>

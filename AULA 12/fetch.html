@@ -1,0 +1,38 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const animeYear = async (date) => {
+                // try {
+                const response = await fetch(
+                    "https://api.jikan.moe/v4/top/anime"
+                );
+                const animeData = await response.json();
+                const animeList = animeData.data;
+                const animeFilter = animeList.filter(
+                    (anime) => anime.year === date
+                );
+
+                // console.log(animeFilter);
+                animeFilter.length === 0
+                    ? console.log(`O ano ${date} não tem conteúdos.`)
+                    : animeFilter.map((anime) =>
+                          console.log(anime.title, anime.year)
+                      );
+
+                // if (animeFilter.length === 0) {
+                //     console.log(`O ano ${date} não tem conteúdos.`);
+                // } else {
+                //     console.log(animeFilter);
+                // }
+                // } catch {
+                //     console.log("error");
+                // }
+            };
+        </script>
+    </body>
+</html>

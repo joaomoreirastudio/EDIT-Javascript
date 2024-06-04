@@ -25,20 +25,21 @@
             //     requestAnime.onload = () => {
             //         const animeData = requestAnime.response.data;
 
-            //         const batatas = animeData.filter(
+            //         const animeFilter = animeData.filter(
             //             (anime) => anime.year === date
             //         );
 
-            //         if (batatas.length == 0) {
+            //         if (animeFilter.length == 0) {
             //             console.log(`O ano ${date} não tem
             //             conteúdos.`);
             //         } else {
-            //             console.log(batatas);
+            //             console.log(animeFilter);
             //         }
             //     };
             // };
+            // animeYear(2023);
             const animeYear = (date) => {
-                return new Promise((resolve, reject) => {
+                const promise = new Promise((resolve, reject) => {
                     const requestAnime = new XMLHttpRequest();
                     requestAnime.open(
                         "GET",
@@ -51,19 +52,26 @@
                     requestAnime.onload = () => {
                         const animeData = requestAnime.response.data;
 
-                        const batatas = animeData.filter(
+                        const animeFilter = animeData.filter(
                             (anime) => anime.year === date
                         );
+                        // .map((anime) => anime.tittle);
 
-                        if (batatas.length === 0) {
-                            reject(`O ano ${date} não tem conteúdos.`);
+                        if (animeFilter.length === 0) {
+                            resolve(`O ano ${date} não tem conteúdos.`);
                         } else {
-                            resolve(batatas);
+                            resolve(animeFilter);
                         }
                     };
                     requestAnime.onerror = () => reject("error animes");
                 });
+                return promise;
             };
+            animeYear(2023)
+                .then((response) =>
+                    response.map((anime) => console.log(anime.title))
+                )
+                .catch((error) => console.log(error));
         </script>
     </body>
 </html>
