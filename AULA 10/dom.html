@@ -1,0 +1,42 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const newDiv = () => {
+                const divTeste = document.createElement("div");
+                divTeste.innerHTML = `<ul>
+            <li>Exemplo 01</li>
+            <li>Exemplo02</li> </ul>
+            <p>isto é uma div</p>`;
+                document.body.append(divTeste);
+            };
+            newDiv();
+
+            const testeLi = document.querySelectorAll("div>ul>li");
+            testeLi[1].insertAdjacentHTML(
+                "beforebegin",
+                "<li>QUE RIQUEZA</li>"
+            );
+
+            const redLi = document.querySelectorAll("div>ul>li");
+            redLi[1].setAttribute("style", "color:blue;");
+
+            console.log(testeLi);
+
+            const removeP = document.querySelector("p");
+            removeP.remove();
+
+            // const divTeste = document.createElement("div");
+            // divTeste.innerHTML(
+            //     `<ul>
+            // <li>Exemplo 01</li>
+            // <li>Exemplo02</li> </ul>
+            // <p>isto é uma div</p>`
+            // );
+        </script>
+    </body>
+</html>

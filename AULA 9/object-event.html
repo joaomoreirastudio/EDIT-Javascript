@@ -1,0 +1,29 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button>Button 1</button>
+        <button>Button 2</button>
+        <script>
+            captureEvent = (event) => {
+                console.log(event);
+
+                if (event.type === "click") {
+                    event.target.setAttribute("class", "clicked");
+                } else if (event.type === "mouseover") {
+                    event.target.setAttribute("class", "hover");
+                }
+            };
+
+            const buttons = document.querySelectorAll("button");
+
+            buttons.forEach((button) =>
+                button.addEventListener("click", captureEvent)
+            );
+            buttons.forEach((button) => (button.onmouseover = captureEvent));
+        </script>
+    </body>
+</html>

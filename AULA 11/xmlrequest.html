@@ -1,0 +1,69 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // const request = new XMLHttpRequest();
+            // request.open("GET", "https://dog.ceo/api/breeds/list/all");
+            // request.send("string");
+
+            // const loadData = () => {
+            //     const request = new XMLHttpRequest();
+            //     request.open("GET", "https://dog.ceo/api/breeds/list/all");
+            //     request.send("string");
+            // };
+
+            // const animeYear = (date) => {
+            //     const requestAnime = new XMLHttpRequest();
+            //     requestAnime.open("GET", "https://api.jikan.moe/v4/top/anime");
+            //     requestAnime.send();
+            //     requestAnime.responseType = "json";
+
+            //     requestAnime.onload = () => {
+            //         const animeData = requestAnime.response.data;
+
+            //         const batatas = animeData.filter(
+            //             (anime) => anime.year === date
+            //         );
+
+            //         if (batatas.length == 0) {
+            //             console.log(`O ano ${date} não tem
+            //             conteúdos.`);
+            //         } else {
+            //             console.log(batatas);
+            //         }
+            //     };
+            // };
+            const animeYear = (date) => {
+                return new Promise((resolve, reject) => {
+                    const requestAnime = new XMLHttpRequest();
+                    requestAnime.open(
+                        "GET",
+                        "https://api.jikan.moe/v4/top/anime"
+                    );
+
+                    requestAnime.responseType = "json";
+                    requestAnime.send();
+
+                    requestAnime.onload = () => {
+                        const animeData = requestAnime.response.data;
+
+                        const batatas = animeData.filter(
+                            (anime) => anime.year === date
+                        );
+
+                        if (batatas.length === 0) {
+                            reject(`O ano ${date} não tem conteúdos.`);
+                        } else {
+                            resolve(batatas);
+                        }
+                    };
+                    requestAnime.onerror = () => reject("error animes");
+                });
+            };
+        </script>
+    </body>
+</html>

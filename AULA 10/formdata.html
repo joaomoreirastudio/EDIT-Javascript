@@ -1,0 +1,47 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <form>
+            <input type="text" name="name" />
+            <input type="email" name="email" />
+            <textarea name="mensagem"></textarea>
+            <button type="submit">submit</button>
+        </form>
+        <style>
+            form {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 30px;
+            }
+            input,
+            textarea {
+                width: 200;
+            }
+            button {
+                background: green;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+            }
+        </style>
+        <script>
+            const formulario = document.querySelector("form");
+            formulario.addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                const data = new FormData(event.target);
+                const name = data.get("name");
+                const email = data.get("email");
+                const content = data.get("mensagem");
+
+                console.log(`${name} + ${email} + ${content}`);
+            });
+        </script>
+    </body>
+</html>

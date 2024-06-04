@@ -1,0 +1,35 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button>Button 1</button>
+        <button>Button 2</button>
+        <script>
+            const button = document.querySelectorAll("button");
+            // button[0].onmouseover = () => console.log("on mouse over");
+            // button[1].onmouseover = () => console.log("on mouse over");
+
+            const buttons = button.foreach(
+                (button) =>
+                    (button.onmouseov1er = () => console.log("mouseover loop"))
+            );
+            //testar com um loop
+            console.log(button);
+
+            const buttonOut = document.querySelectorAll("button");
+            button[0].addEventListener("mouseout", () =>
+                console.log("on mouse out")
+            );
+            button[1].addEventListener("mouseout", () =>
+                console.log("on mouse out")
+            );
+
+            const timeOut = setTimeout(() => {
+                button[0].setAttribute("id", "id");
+            }, 5000);
+        </script>
+    </body>
+</html>

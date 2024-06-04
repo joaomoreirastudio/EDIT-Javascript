@@ -1,0 +1,37 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const newSpan = document.createElement("span");
+            newSpan.textContent = "teste";
+            newSpan.classList.add("active");
+            document.body.append(newSpan);
+
+            // newSpan.onclick = () => {
+            //     newSpan.classList.remove("active");
+            //     newSpan.classList.add("disabled");
+            // };
+
+            newSpan.onclick = () => {
+                newSpan.classList.toogle("active");
+                if (newSpan.classList.contains("active")) {
+                    newSpan.classList.add("disabled");
+                }
+            };
+
+            const button = document.createElement("button");
+            button.textContent = "Click me";
+            document.body.append(button);
+            button.onmouseover = () => {
+                newSpan.classList.add("mouseover");
+            };
+            button.onmouseout = () => {
+                newSpan.classList.remove("mouseover");
+            };
+        </script>
+    </body>
+</html>
