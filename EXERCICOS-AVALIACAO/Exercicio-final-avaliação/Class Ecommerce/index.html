@@ -1,0 +1,90 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const products = [
+                { id: 1, name: "product01", price: 50 },
+                { id: 2, name: "product02", price: 100 },
+                { id: 3, name: "product03", price: 150 },
+                { id: 4, name: "product04", price: 200 },
+            ];
+
+            console.log(products);
+            class Ecommerce {
+                constructor(products = []) {
+                    this.products = products;
+                    this.cart = [];
+                }
+                addProduct(product) {
+                    this.products.push(product);
+                }
+
+                setProductPrice(productId, price) {
+                    const product = this.products.find(
+                        (product) => product.id === productId
+                    );
+                    if (product) {
+                        product.price = price;
+                    } else {
+                        throw new Error(`${productId} not found`);
+                    }
+                }
+                getAllProducts() {
+                    return this.products;
+                }
+                getAllProductsNames() {
+                    return this.products.map((product) => product.name);
+                }
+                getProductById(id) {
+                    return this.products.find((product) => product.id === id);
+                }
+                getProductByName(name) {
+                    return this.products.find(
+                        (product) => product.name === name
+                    );
+                }
+                getProductsByPrice(initialPrice, finalPrice) {
+                    return this.products.filter(
+                        (product) =>
+                            product.price >= initialPrice &&
+                            product.price <= finalPrice
+                    );
+                }
+                addProductToCart(product) {
+                    return this.cart.push(product);
+                }
+                getCart() {
+                    return this.cart;
+                }
+                getCartTotalPrice() {
+                    return this.cart.reduce(
+                        (accumulator, product) => accumulator + product.price,
+                        0
+                    );
+                }
+            }
+
+            const ecommerce = new Ecommerce(products);
+            ecommerce.addProduct({ id: 5, name: "product05", price: 250 });
+            ecommerce.setProductPrice(1, 50);
+            // console.log(ecommerce.products);
+            console.log(ecommerce.getAllProducts());
+            console.log(ecommerce.getAllProductsNames());
+            console.log(ecommerce.getProductById(3));
+            console.log(ecommerce.getProductByName("product01"));
+            console.log(ecommerce.getProductsByPrice(100, 150));
+
+            ecommerce.addProductToCart(products[0]);
+            ecommerce.addProductToCart(products[3]);
+            ecommerce.getCartTotalPrice();
+
+            // console.log(ecommerce.addProductToCart());
+            console.log(ecommerce.getCart());
+            console.log(ecommerce.getCartTotalPrice());
+        </script>
+    </body>
+</html>
